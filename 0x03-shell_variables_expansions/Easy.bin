@@ -1,0 +1,38 @@
+#!/bin/bash
+
+echo "What do you want to do?"
+echo "1: create a bash scropt file?"
+echo "2: create a normale file?"
+echo "3: create a new directory?"
+echo "4: Exit"
+
+read INPUT
+
+case $INPUT in
+        1)echo "How many file do you need"
+                read count
+                while [ $count -gt 0 ]
+                do
+                        echo "Plese give me a name for the new file"
+                        read nameSH
+                        touch $nameSH
+                        chmod +x $nameSH
+                        echo "#!/bin/bash" > $nameSH
+                        echo "$nameSH is created - DONE :)"
+                        count=$(($count - 1))
+        done
+                ;;
+        2) echo "Plese give me a name for the new file"
+                read nameSH
+                touch $nameSH
+                chmod +x $nameSH
+                echo "$nameSH is created - DONE :)"
+                ;;
+        3) echo "Plese give me a name for the new directory"
+                read name
+                mkdir $name
+                echo "$nameSH is created - DONE :)"
+                ;;
+        4)echo "Ta Sir T9....."
+                exit 1;;
+esac
